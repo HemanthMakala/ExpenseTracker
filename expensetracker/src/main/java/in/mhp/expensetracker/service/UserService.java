@@ -13,6 +13,8 @@ public interface UserService {
 	User getByMailId(String mailId);
 	
 	void save(User user);
+	
+	Long getTotalExpense(User user);
 
 
 }

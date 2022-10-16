@@ -4,8 +4,12 @@
 
 //
 presentational
+
  
+
 styling
+
+
 
 
 
@@ -31,23 +35,23 @@ h1 {
 	color: #FFFFFF;
 }
 
-.addexp{
-    position: relative;
-    background-color: #ff9f00;
-    font-size: 18px;
-    padding: 14px 36px;
-    color: #fff;
-    border-radius: 3px;
-    min-width: 180px;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    text-decoration: none;
-    font-weight: bold;
-    letter-spacing: 1px;
+.addexp {
+	position: relative;
+	background-color: #ff9f00;
+	font-size: 18px;
+	padding: 14px 36px;
+	color: #fff;
+	border-radius: 3px;
+	min-width: 180px;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	text-decoration: none;
+	font-weight: bold;
+	letter-spacing: 1px;
 }
 
 .button {
@@ -97,26 +101,17 @@ h1 {
 
 th, td {
 	margin: .5em 1em;
-	@media
-	(
-	min-width
-	:
-	$breakpoint-alpha)
-{
-	padding
-	:
-	 
-	1em
-	 
-	!
-	important
-	;
-	 
-    
-}
-
 }
 th, td:before {
 	color: #dd5;
 }
+}
+
+.totalExp {
+  position: absolute;
+  right: 150px;
+}
+
+.imgDel {
+   filter: invert(90%);
 }

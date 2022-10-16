@@ -52,6 +52,7 @@ public class MasterController {
 			User userPrsnt = userService.getByMailId((String) session.getAttribute("userMail"));
 			List<Expense> expenses = userPrsnt.getExpenses();
 			/* List<Expense> expenses = expenseService.findAll(); */
+			mav.addObject("totalExpense", userService.getTotalExpense(userPrsnt));
 			mav.addObject("message", "List of expenses");
 			mav.addObject("expenses", expenses);
 			mav.addObject("user", userPrsnt);

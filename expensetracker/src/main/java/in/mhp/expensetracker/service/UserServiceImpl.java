@@ -1,6 +1,7 @@
 package in.mhp.expensetracker.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,6 +43,11 @@ public class UserServiceImpl implements UserService {
 	public void save(User user) {
 		userRepository.save(user);
 
+	}
+
+	@Override
+	public Long getTotalExpense(User user) {
+		return user.getExpenses().stream().map( item -> item.getAmount().longValue()).reduce((a, b) -> a+ b).get();
 	}
 
 }
