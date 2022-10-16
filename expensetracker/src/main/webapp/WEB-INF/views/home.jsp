@@ -17,7 +17,11 @@ down.innerHTML = date.toString();
 <body>
 <h1>Expense Tracker</h1>
 <p style="color:#FFFFFF">${message}</p>
+<<<<<<< HEAD
+<a href="${contextRoot}/expense" class="addexp">Add Expense </a>
+=======
 <a href="${contextRoot}/expense" style="color:#FFFFFF">Add Expense</a>
+>>>>>>> 61f889b2224b04a03ad5d59af8655ba63be6d6d6
 <br>
 <br>
 <table class="rwd-table">
@@ -32,9 +36,22 @@ down.innerHTML = date.toString();
 
 	<tr>
 		<td>${expense.expensename}</td>
+<<<<<<< HEAD
+		<td><c:if test="${not empty expense.createdAt}">
+    <jsp:useBean id="myDate" class="java.util.Date"/>  
+    	<c:set target="${myDate}" property="time" value="${expense.createdAt}"/> 
+		 <fmt:formatDate value= "${myDate}" pattern="dd-MMM-yyyy" timeZone="IST"/> 
+	</c:if></td>
+		
+		
+		
+		
+		
+=======
 		<jsp:useBean id="myDate" class="java.util.Date"/>  
     	<c:set target="${myDate}" property="time" value="${expense.createdAt}"/> 
 		<td> <fmt:formatDate value= "${myDate}" pattern="dd-MMM-yyyy" timeZone="IST"/> </td>
+>>>>>>> 61f889b2224b04a03ad5d59af8655ba63be6d6d6
 		<td>${expense.note}</td>
 		<td>&#8377; ${expense.amount}</td>
 		<td><a href="${contextRoot}/expense/${expense.id}/delete" ><img src=https://cdn-icons-png.flaticon.com/128/3221/3221803.png width="90" 
