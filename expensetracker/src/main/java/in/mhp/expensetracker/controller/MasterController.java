@@ -19,16 +19,11 @@ import in.mhp.expensetracker.service.UserService;
 
 @Controller
 public class MasterController {
-<<<<<<< HEAD
 
-=======
-	
->>>>>>> 61f889b2224b04a03ad5d59af8655ba63be6d6d6
 	public boolean value;
 
 	@Autowired
 	ExpenseService expenseService;
-<<<<<<< HEAD
 
 	@Autowired
 	UserService userService;
@@ -49,7 +44,7 @@ public class MasterController {
 	@RequestMapping(value = "/expenses")
 	public ModelAndView home(@ModelAttribute("user") User user, HttpSession session) {
 		ModelAndView mav = new ModelAndView("home");
-		if (user != null && user.getMailId() != null) {
+		if (user != null && user.getMailId() != null && userService.verifyUser(user)) {
 			session.setAttribute("userMail", user.getMailId());
 
 		}
@@ -74,10 +69,10 @@ public class MasterController {
 			ModelAndView mavExp = new ModelAndView("expense");
 			mavExp.addObject("expense", new Expense());
 			return mavExp;
-		}else {
+		} else {
 			return login(user);
 		}
-		
+
 	}
 
 	@RequestMapping(value = "/expense", method = RequestMethod.POST)
@@ -100,76 +95,3 @@ public class MasterController {
 	}
 
 }
-=======
-	
-	@Autowired
-	UserService userService;
-	
-	@RequestMapping("/login")
-	public ModelAndView login(@ModelAttribute("user") User user, HttpSession session) {
-		ModelAndView mav = new ModelAndView("login");
-		System.out.println(userService.getUsers());
-		session.setAttribute("isLogin", false);
-		return mav;
-	}
-	
-	@RequestMapping("/logout")
-	public ModelAndView logout(HttpSession session) {
-		ModelAndView mavLogout = new ModelAndView("logout");
-		System.out.println("Session Details --------------------------------->");
-		System.out.println(session.getMaxInactiveInterval());
-		System.out.println(session.getValueNames().toString());
-		System.out.println(session.getId());
-		
-		session.invalidate();
-		return mavLogout;
-	}
-	
-	
-	@RequestMapping(value="/expenses")
-	public ModelAndView home(@ModelAttribute("user") User user,HttpSession session) {
-		ModelAndView mav = new ModelAndView("home");
-		List<Expense> expenses = expenseService.findAll();
-		mav.addObject("message","List of expenses");
-		mav.addObject("expenses",expenses);
-		mav.addObject("user",user);
-		if(session.getAttribute("isLogin") != null){
-		    value = (Boolean) session.getAttribute("isLogin");
-		}else {
-			value = false;
-		}
-		if(userService.verifyUser(user) == true || value) {
-			session.setAttribute("isLogin", true);
-			return mav;
-		}else {
-			ModelAndView mavLin = new ModelAndView("login");
-			return mavLin;
-		}
-		
-	}
-	
-	
-	 @RequestMapping(value="/expense", method=RequestMethod.GET) public
-	 ModelAndView addExpense() { ModelAndView mavExp = new
-	 ModelAndView("expense"); mavExp.addObject("expense",new Expense()); return
-	 mavExp; }
-	 
-	
-	@RequestMapping(value="/expense", method=RequestMethod.POST)
-	public ModelAndView save(@ModelAttribute("expense") Expense expense) {
-		ModelAndView mavSave = new ModelAndView("save");
-		expenseService.save(expense);	
-		return mavSave;
-	}
-	
-	
-	@RequestMapping(value="/expense/{id}/delete")
-	public ModelAndView delete(@PathVariable("id") Long id) {
-		expenseService.delete(id);
-		ModelAndView mavDelete = new ModelAndView("delete");
-		mavDelete.addObject("id",id);
-		return mavDelete;
-	}
-	
-}
->>>>>>> 61f889b2224b04a03ad5d59af8655ba63be6d6d6
