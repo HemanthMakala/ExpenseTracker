@@ -2,6 +2,7 @@
 
 @charset "ISO-8859-1";
 
+<<<<<<< HEAD
 //
 presentational
  
@@ -120,3 +121,75 @@ th, td:before {
 	color: #dd5;
 }
 }
+=======
+
+
+// presentational styling
+
+@import 'https://fonts.googleapis.com/css?family=Montserrat:300,400,700';
+
+html {
+  height: 100%;
+}
+
+body {
+  padding: 0 10em;
+  font-family: Montserrat, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  color: #444;
+  background: #141e30;
+}
+
+h1 {
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #FFFFFF;
+}
+
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #808080;
+  border: none;
+  border-radius: 15px;
+}
+
+.button:hover {background-color: #C0C0C0}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.rwd-table {
+  background: #34495E;
+  color: #fff;
+  border-radius: .4em;
+  overflow: scroll;
+  height: 400px;
+  width:1500px;
+  padding: 15px 25px;
+  text-align: center;
+  tr {
+    border-color: lighten(#34495E, 10%);
+  }
+  th, td {
+    margin: .5em 1em;
+    @media (min-width: $breakpoint-alpha) { 
+      padding: 1em !important; 
+    }
+  }
+  th, td:before {
+    color: #dd5;
+  }
+}
+
+>>>>>>> 61f889b2224b04a03ad5d59af8655ba63be6d6d6
