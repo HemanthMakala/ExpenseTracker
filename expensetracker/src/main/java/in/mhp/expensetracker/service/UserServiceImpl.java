@@ -47,7 +47,12 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public Long getTotalExpense(User user) {
-		return user.getExpenses().stream().map( item -> item.getAmount().longValue()).reduce((a, b) -> a+ b).get();
+		if(!user.getExpenses().isEmpty()) {
+			return user.getExpenses().stream().map( item -> item.getAmount().longValue()).reduce((a, b) -> a+ b).get();
+		}else {
+			return  (long) 0;
+		}
+		
 	}
 
 }

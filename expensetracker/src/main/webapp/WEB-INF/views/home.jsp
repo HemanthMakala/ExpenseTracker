@@ -17,11 +17,10 @@ down.innerHTML = date.toString();
 <body>
 <h1>Expense Tracker</h1>
 <div class="totalExp"><h1>Total Expense: ${totalExpense}</h1></div><br>
-<p style="color:#FFFFFF">${message}</p>
-<a href="${contextRoot}/expense" class="addexp">Add Expense </a>
-<br>
-<br>
-<table class="rwd-table">
+<a href="${contextRoot}/expense" class="addexp">Add Expense </a><br><br><br>
+<c:choose>
+  <c:when test="${not empty expenses}" >
+    <table class="rwd-table">
 <tr>
 	    <th>Expense Name</th>
 	    <th>Time Created</th>
@@ -39,13 +38,28 @@ down.innerHTML = date.toString();
 		 <fmt:formatDate value= "${myDate}" pattern="dd-MMM-yyyy" timeZone="IST"/> 
 	</c:if></td>		
 		<td>${expense.note}</td>
-		<td>&#8377; ${expense.amount}</td>
+		<td style="
+		top:20px;
+		font-weight: bold;
+display: block;
+  height: 30%;
+  width: 80%;
+  margin-left: -10px;
+  margin-right: -10px;
+  background: #19A203;
+  border-radius: 5px;
+  padding: 5px 1px 1px 1px;">&#8377; ${expense.amount} </td>
 		<td><a href="${contextRoot}/expense/${expense.id}/delete" ><img class="imgDel" src=https://cdn-icons-png.flaticon.com/128/3221/3221803.png width="90" 
      height="90"></a></td>
 	</tr>      
 </c:forEach> 
 </table>
+  </c:when>
+  <c:otherwise>
+    <h1 style="text-align: center;">There is no active Expense</h1>
+  </c:otherwise>
+</c:choose>
 <br><br>
-<a href="${contextRoot}/logout"><button class="button">Logout</button></a>
+<a href="${contextRoot}/logout" class="logout">Logout</a>
 </body>
 </html>

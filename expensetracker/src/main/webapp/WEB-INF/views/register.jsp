@@ -13,18 +13,22 @@
 </head>
 <body>
 <div class="login-box" >
-  <h2>Login</h2>
-  <form:form action="${contextRoot}/expenses" method="post" modelAttribute="user">
+  <h2>Register User</h2>
+  <form:form action="${contextRoot}/register" method="post" modelAttribute="user">
+  	<div class="user-box">
+      <form:input path="fullName" placeholder="Please Enter Full Name" />
+    </div>
     <div class="user-box">
       <form:input path="mailId" placeholder="Please Enter MailId" />
+    </div>
+    <div class="user-box">
+      <form:input path="mobileNumber" placeholder="Please Enter Mobile Number" />
     </div>
     <div class="user-box">
       <form:input path="password" placeholder="Please Enter Password" />
     </div>
     <button type="submit">Submit</button>
   </form:form>
-  <br>
-  <a type="button" style="color:white;" href="${contextRoot}/register"> New User ? Register </a>
 </div>
 </body>
 </html>

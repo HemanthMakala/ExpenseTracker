@@ -53,7 +53,6 @@ public class MasterController {
 			List<Expense> expenses = userPrsnt.getExpenses();
 			/* List<Expense> expenses = expenseService.findAll(); */
 			mav.addObject("totalExpense", userService.getTotalExpense(userPrsnt));
-			mav.addObject("message", "List of expenses");
 			mav.addObject("expenses", expenses);
 			mav.addObject("user", userPrsnt);
 			return mav;
@@ -94,5 +93,17 @@ public class MasterController {
 		mavDelete.addObject("id", id);
 		return "redirect:/expenses";
 	}
+	
+	@RequestMapping(value = "/register",method = RequestMethod.GET)
+	public ModelAndView registerUser(@ModelAttribute("user") User user, HttpSession session) {
+		ModelAndView mavReg = new ModelAndView("register");
+		return mavReg;
+	}
+	
+	@RequestMapping(value = "/register",method = RequestMethod.POST)
+	public String saveUser(@ModelAttribute("user") User user, HttpSession session) {
+		userService.save(user);
+		return "redirect:/login";
+	} 
 
 }
