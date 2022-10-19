@@ -15,7 +15,7 @@ styling
 
 @import 'https://fonts.googleapis.com/css?family=Montserrat:300,400,700'
 	;
-
+@import  url(https://fonts.googleapis.com/css?family=Montserrat);
 html {
 	height: 100%;
 }
@@ -37,7 +37,7 @@ h1 {
 
 .addexp {
 	position: relative;
-	background-color: #ff9f00;
+	background-color: #3F7898;
 	font-size: 18px;
 	padding: 14px 36px;
 	color: #fff;
@@ -54,16 +54,65 @@ h1 {
 	letter-spacing: 1px;
 }
 
+.addexp:hover {
+	background-color: #5FA0C4
+}
+
+
 .logout {
 	position: fixed;
 	top:40px;
 	right:100px;
-	background-color: #ff9f00;
+	background-color: #874DB3;
 	font-size: 18px;
 	padding: 14px 36px;
 	color: #fff;
 	border-radius: 3px;
 	min-width: 75px;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	text-decoration: none;
+	font-weight: bold;
+	letter-spacing: 1px;
+}
+
+.logout:hover {
+	background-color: #A56ECF
+}
+
+.update {
+	background-color: #19B49F;
+	font-size: 18px;
+	padding: 14px 36px;
+	color: #fff;
+	border-radius: 3px;
+	min-width: 75px;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	text-decoration: none;
+	font-weight: bold;
+	letter-spacing: 1px;
+}
+
+.update:hover {
+	background-color: #1DE8CC
+}
+
+.amount {
+	background-color: #19A203;
+	font-size: 18px;
+	padding: 10px 0;
+	color: #fff;
+	border-radius: 3px;
+	min-width: 20px;
 	-webkit-align-items: center;
 	-ms-flex-align: center;
 	align-items: center;
@@ -92,8 +141,8 @@ h1 {
 	border-radius: .4em;
 	overflow: scroll;
 	height: 100px;
-	width: 1500px;
-	padding: 15px 25px;
+	width: 1600px;
+	padding: 10px 20px;
 	text-align: center;
 	tr
 	{
@@ -121,4 +170,57 @@ th, td:before {
 
 .imgDel {
    filter: invert(90%);
+   height: 60px;
+	width: 60px;
 }
+
+
+.searchVal{
+  	position: fixed;
+  	right:221px;
+    display: inline-block;
+    width: 500px;
+    height: 40px;
+    padding: 10px 10px 10px 10px;
+    box-sizing: border-box;
+    outline: none;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    transition: all 0.1s ease-out; 
+}
+
+.submit{
+	position: fixed;
+  	right:100px;
+  	width: 120px;
+    height: 40px;
+    padding: 10px 10px 10px 10px;
+	background-color: #19B49F;
+	font-size: 18px;
+	color: #fff;
+	border-radius: 3px;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	text-decoration: none;
+	font-weight: bold;
+	letter-spacing: 1px;
+}
+
+.submit:hover {
+	background-color: #C0C0C0
+}
+
+
+
+
+
+
+
+
+
+
+

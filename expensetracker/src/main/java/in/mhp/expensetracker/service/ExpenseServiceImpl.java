@@ -42,5 +42,18 @@ public class ExpenseServiceImpl implements ExpenseService {
 		expenseRepository.deleteById(id);
 	}
 
+	@Override
+	public Expense getExpById(Long id) {
+		// TODO Auto-generated method stub
+		return expenseRepository.findById(id).get();
+	}
+
+	@Override
+	public List<Expense> findByKeyword(String keyword, Long id) {
+		// TODO Auto-generated method stub
+		System.out.println(keyword);
+		return expenseRepository.findByKeyword(keyword,id);
+	}
+
 
 }
