@@ -15,5 +15,8 @@ public interface ExpenseRepository extends JpaRepository<Expense, Long>{
 	
 	@Query(value = "select * from tbl_expenses where description like %:keyword% and user = :id" , nativeQuery = true)
 	 List<Expense> findByKeyword(@Param("keyword") String keyword, @Param("id") Long id);
+	
+	@Query(value = "select * from tbl_expenses where id = :expId and user = :usrId" , nativeQuery = true)
+	 List<Expense> findByUsrIdandExpId(@Param("usrId") Long usrId, @Param("expId") Long expId);
 
 }

@@ -9,5 +9,6 @@ public enum ExpenseName {
 	PETROL,
 	GROCERIES,
 	HOME_RENT,
+	CREDIT_CARD
 	
 }

@@ -4,15 +4,20 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
  <c:set var="contextRoot" value="${pageContext.request.contextPath}"/>  
+ 
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>Insert title here</title>
 <style><%@include file="/WEB-INF/css/home.css" %></style>
-<script>
-var date = new Date(createdAt);
-down.innerHTML = date.toString();
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">
+function deleteprompt(){
+	alert("Do You realy want to delete the expense");
+}
 </script>
 </head>
 <body>
@@ -27,7 +32,20 @@ down.innerHTML = date.toString();
 <br>
 <br>
 <div class="totalExp"><h1>Total Expense: ${totalExpense}</h1></div><br>
+
+
+
+<form:form action="${contextRoot}/exportExp" method="post" modelAttribute="expenselist">
+<form:input path="expenseListObj" type="hidden"/>
+    <button class="btn" type="submit"><i class="fa fa-download"></i> Download</button>
+  </form:form>
+
+
+<br>
+
+
 <a href="${contextRoot}/expense" class="addexp">Add Expense </a><br><br><br>
+
 <c:choose>
   <c:when test="${not empty expenses}" >
     <table class="rwd-table">
@@ -56,7 +74,7 @@ down.innerHTML = date.toString();
   
   <td ><a class="update" href="${contextRoot}/update/${expense.id}" >Update</a></td>
   
-		<td><a href="${contextRoot}/expense/${expense.id}/delete" ><img class="imgDel" src=https://cdn-icons-png.flaticon.com/128/3221/3221803.png width="90" 
+		<td><a href="${contextRoot}/expense/${expense.id}/delete" onclick="deleteprompt()"><img class="imgDel" src=https://cdn-icons-png.flaticon.com/128/3221/3221803.png width="90" 
      height="90"></a></td>
 	</tr>      
 </c:forEach> 

@@ -16,10 +16,10 @@
   <h2>Login</h2>
   <form:form action="${contextRoot}/expenses" method="post" modelAttribute="user">
     <div class="user-box">
-      <form:input path="mailId" placeholder="Please Enter MailId" />
+      <form:input path="mailId" placeholder="Please Enter MailId" required="true"/>
     </div>
     <div class="user-box">
-      <form:input path="password" placeholder="Please Enter Password" />
+      <form:input path="password" placeholder="Please Enter Password" required="true"/>
     </div>
     <button type="submit">Submit</button>
   </form:form>

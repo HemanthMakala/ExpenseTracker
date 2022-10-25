@@ -16,16 +16,16 @@
   <h2>Register User</h2>
   <form:form action="${contextRoot}/register" method="post" modelAttribute="user">
   	<div class="user-box">
-      <form:input path="fullName" placeholder="Please Enter Full Name" />
+      <form:input path="fullName" placeholder="Please Enter Full Name" required="true"/>
     </div>
     <div class="user-box">
-      <form:input path="mailId" placeholder="Please Enter MailId" />
+      <form:input path="mailId" placeholder="Please Enter MailId" required="true"/>
     </div>
     <div class="user-box">
-      <form:input path="mobileNumber" placeholder="Please Enter Mobile Number" />
+      <form:input path="mobileNumber" placeholder="Please Enter Mobile Number" required="true"/>
     </div>
     <div class="user-box">
-      <form:input path="password" placeholder="Please Enter Password" />
+      <form:input path="password" placeholder="Please Enter Password" required="true"/>
     </div>
     <button type="submit">Submit</button>
   </form:form>

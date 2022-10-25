@@ -15,9 +15,14 @@
 <div class="login-box" >
 <h2>Add Expense</h2>
 <form:form action="${contextRoot}/expense" method="post" modelAttribute="expense">
-<div class="user-box" ><form:input style="border: 1px solid #fff;" path="expensename" placeholder="Enter Expense Name"/></div>
-<div class="user-box"><form:input style="border: 1px solid #fff;" path="amount" placeholder="Enter Amount"/></div>
-<div class="user-box"><form:input style="border: 1px solid #fff;" path="note" placeholder="Enter Note"/></div>
+
+<form:select  name="expensename" path="expensename" placeholder="Enter Expense Name" required="true">
+    <c:forEach items="${mavExp}" var="expenEnm">
+        <option class="user-box" style="border: 1px solid #fff;">${expenEnm}</option>
+    </c:forEach>
+    </form:select>
+<div class="user-box"><form:input style="border: 1px solid #fff;" path="amount" placeholder="Enter Amount" required="true"/></div>
+<div class="user-box"><form:input style="border: 1px solid #fff;" path="note" placeholder="Enter Note" required="true"/></div>
 <button type="submit">Add Expense</button>
 </form:form>
 </div>
