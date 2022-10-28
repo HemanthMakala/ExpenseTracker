@@ -24,6 +24,7 @@ import lombok.ToString;
 @ToString
 public class User {
 
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -36,6 +37,7 @@ public class User {
 	
 	private Long mobileNumber;
 	
+	private Long monthlyBudget;
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "user")

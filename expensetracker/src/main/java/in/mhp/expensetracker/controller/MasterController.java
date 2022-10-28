@@ -173,6 +173,13 @@ public class MasterController extends Exception{
 		 
     }
 	
-	
+	@RequestMapping(value = "/mntlyExpUp",method = RequestMethod.POST)
+    public String monthlyExpebseUpdate( @ModelAttribute("user") User user, HttpSession session, HttpServletResponse servletResponse) throws IOException {
+		User userPrsnt = userService.getByMailId((String) session.getAttribute("userMail"));
+		userPrsnt.setMonthlyBudget(user.getMonthlyBudget());		
+		userService.save(userPrsnt); 
+		return "redirect:/expenses";
+		 
+    }
 	
 }

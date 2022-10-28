@@ -31,16 +31,24 @@ function deleteprompt(){
 </form>
 <br>
 <br>
-<div class="totalExp"><h1>Total Expense: ${totalExpense}</h1></div><br>
-
+<div class="totalExp"><h1>Total Expense: &#8377; ${totalExpense}</h1></div><br><br>
+<c:if test="${not empty user.monthlyBudget}">
+    <div class="totalExp"><h1>Your Monthly Budget id: &#8377; ${user.monthlyBudget}</h1></div><br><br>
+    <div class="totalExp"><h1>You have &#8377;${user.monthlyBudget - totalExpense} in your wallet</h1></div><br>
+	</c:if>
+	
+<c:if test="${empty user.monthlyBudget}">
+    <form:form class="searchVal" action="${contextRoot}/mntlyExpUp" method="post" modelAttribute="user">
+	<form:input class="searchVal" style="width:120px" path="monthlyBudget"/>
+    <button class="addexp" type="submit">Set Monthly Expense</button>
+  </form:form>
+</c:if>
 
 
 <form:form action="${contextRoot}/exportExp" method="post" modelAttribute="expenselist">
 <form:input path="expenseListObj" type="hidden"/>
     <button class="btn" type="submit"><i class="fa fa-download"></i> Download</button>
   </form:form>
-
-
 <br>
 
 
