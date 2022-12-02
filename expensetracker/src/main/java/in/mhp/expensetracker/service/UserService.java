@@ -15,6 +15,8 @@ public interface UserService {
 	void save(User user);
 	
 	Long getTotalExpense(User user);
+	
+	 User getById(Long id);
 
 
 }

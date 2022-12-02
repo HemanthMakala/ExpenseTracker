@@ -1,20 +1,7 @@
 @import "compass/css3";
 
-@charset "ISO-8859-1";
+@import 'https://fonts.googleapis.com/css?family=Montserrat:300,400,700';
 
-//
-presentational
-
- 
-
-styling
-
-
-
-
-
-@import 'https://fonts.googleapis.com/css?family=Montserrat:300,400,700'
-	;
 @import  url(https://fonts.googleapis.com/css?family=Montserrat);
 html {
 	height: 100%;
@@ -144,15 +131,7 @@ h1 {
 	width: 1600px;
 	padding: 10px 20px;
 	text-align: center;
-	tr
-	{
-	border-color
-	:
-	lighten(
-	#34495E
-	,
-	10%
-	);
+	
 }
 
 th, td {
@@ -160,7 +139,6 @@ th, td {
 }
 th, td:before {
 	color: #dd5;
-}
 }
 
 .totalExp {
@@ -236,8 +214,33 @@ th, td:before {
 
 
 
+.usericn {
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	font-size: 30px;
+	text-decoration: none;
+	font-weight: bold;
+	color: White;
+	background-color: #B03A2E;
+    -webkit-background-size: 32px 32px;
+    background-size: 50px 50px;
+    border: 0;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    display: block;
+    margin: 0px;
+    position: relative;
+    height: 50px;
+    width: 50px;
+    z-index: 0;
+}
 
-
-
+.usericn:hover {
+	background-color: #EC7063
+}
 
 

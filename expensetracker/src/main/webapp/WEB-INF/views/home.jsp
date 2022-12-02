@@ -3,6 +3,7 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
  <c:set var="contextRoot" value="${pageContext.request.contextPath}"/>  
  
 <!DOCTYPE html>
@@ -30,6 +31,11 @@ function deleteprompt(){
     <input class = "submit" value="Submit" type="submit"/>
 </form>
 <br>
+
+<form:form action="${contextRoot}/userdetails" method="get">
+    <button class="usericn" type="submit">${fn:substring(user.fullName, 0, 1)}</button>
+</form:form>
+
 <br>
 <div class="totalExp"><h1>Total Expense: &#8377; ${totalExpense}</h1></div><br><br>
 <c:if test="${not empty user.monthlyBudget}">

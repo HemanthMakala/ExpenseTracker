@@ -37,6 +37,13 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		return userRepository.findByMailId(mailID);
 	}
+	
+	
+	@Override
+	public User getById(Long id) {
+		// TODO Auto-generated method stub
+		return userRepository.findById(id).get();
+	}
 
 	@Override
 	public void save(User user) {

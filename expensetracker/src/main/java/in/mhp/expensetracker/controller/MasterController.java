@@ -182,4 +182,32 @@ public class MasterController extends Exception{
 		 
     }
 	
+	@RequestMapping(value = "/userdetails",method = RequestMethod.GET)
+    public ModelAndView userDetails( @ModelAttribute("user") User user, HttpSession session, HttpServletResponse servletResponse) throws IOException {					
+		if (session.getAttribute("userMail") != null) {
+			ModelAndView userdetails = new ModelAndView("userDetails");
+			User userPrsnt = userService.getByMailId((String) session.getAttribute("userMail"));
+			userdetails.addObject("user", userPrsnt);
+			return userdetails;
+		} else {
+			return login(user);
+		}
+				 
+    }
+	
+	@RequestMapping(value = "/updateuserdetails/{id}")
+    public String UpdateUserDetails( @ModelAttribute("user") User user, @PathVariable("id") Long id, HttpSession session, HttpServletResponse servletResponse) throws IOException {
+		User userPrsnt = userService.getById(id);
+		
+		userPrsnt.setFullName(user.getFullName());
+		userPrsnt.setMailId(user.getMailId());
+		userPrsnt.setMobileNumber(user.getMobileNumber());
+		userPrsnt.setPassword(user.getPassword());
+		userPrsnt.setMonthlyBudget(user.getMonthlyBudget());
+		userService.save(userPrsnt);
+		
+		return "redirect:/expenses";
+		 
+	}
+
 }
